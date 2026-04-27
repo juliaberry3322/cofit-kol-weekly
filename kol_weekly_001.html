@@ -1,0 +1,1348 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KOL Weekly Pulse #001｜Cofit 網紅中心週報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cofit-dark: #004f51;
+  --cofit-green: #168e6b;
+  --cofit-orange: #ffb46e;
+  --cofit-yellow: #ffea85;
+  --cofit-cyan: #00c2e0;
+  --cofit-coral: #ff6b81;
+  --cofit-bg: #f8f8f8;
+
+  --ink: #1a2a2b;
+  --ink-soft: #3d5152;
+  --ink-mute: #6a7a7b;
+  --surface: #ffffff;
+  --line: #d5dede;
+  --cofit-dark-soft: #e6efef;
+  --cofit-orange-soft: #fff3e6;
+  --cofit-yellow-soft: #fff9dd;
+  --cofit-cyan-soft: #e0f7fb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--cofit-bg);
+  color: var(--ink);
+  font-family: 'PingFang TC', '蘋方-繁', 'Noto Sans TC', -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ---------- Header ---------- */
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--cofit-dark);
+  margin-bottom: 28px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cofit-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.brand-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--cofit-dark);
+  opacity: 0.3;
+}
+.issue-title {
+  font-size: 14px;
+  color: var(--cofit-dark);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.issue-title .zh { display: block; font-weight: 600; }
+.issue-title .en { font-size: 11px; color: var(--ink-mute); font-weight: 400; letter-spacing: 0.05em; }
+.meta {
+  text-align: right;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.meta .issue-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cofit-dark);
+  letter-spacing: 0.02em;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.meta .issue-serial {
+  font-size: 11px;
+  color: var(--cofit-green);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.tab {
+  padding: 7px 14px;
+  font-size: 13px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.tab:hover { background: var(--cofit-dark-soft); }
+.tab.active {
+  background: var(--cofit-dark);
+  color: white;
+  border-color: var(--cofit-dark);
+  font-weight: 500;
+}
+.tab-note {
+  font-size: 12px;
+  color: var(--ink-mute);
+  align-self: center;
+  font-style: italic;
+}
+
+/* ---------- Lede ---------- */
+.lede {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 26px 30px;
+  margin-bottom: 36px;
+  border-radius: 4px;
+}
+.lede-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--cofit-orange);
+  margin-bottom: 14px;
+  display: block;
+  font-weight: 500;
+}
+.lede-hero {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  color: white;
+}
+.lede-hero em {
+  font-style: normal;
+  color: var(--cofit-yellow);
+}
+.lede-list {
+  list-style: none;
+  counter-reset: lede;
+}
+.lede-list li {
+  counter-increment: lede;
+  padding: 13px 0 13px 42px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+}
+.lede-list li::before {
+  content: counter(lede, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-size: 13px;
+  color: var(--cofit-orange);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.lede-list strong {
+  color: var(--cofit-yellow);
+  font-weight: 500;
+}
+
+/* ---------- Section ---------- */
+section { margin-bottom: 52px; }
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.section-num {
+  font-size: 12px;
+  color: var(--cofit-green);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--cofit-dark);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Radar Cards ---------- */
+.radar-list { display: grid; gap: 14px; }
+.radar-card {
+  background: var(--surface);
+  padding: 20px 24px;
+  border-left: 4px solid var(--cofit-green);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 1px 0 #e5eded;
+}
+.radar-card:nth-child(2) { border-left-color: var(--cofit-orange); }
+.radar-card:nth-child(3) { border-left-color: var(--cofit-cyan); }
+.radar-card:nth-child(4) { border-left-color: var(--cofit-coral); }
+.radar-card:nth-child(5) { border-left-color: var(--cofit-dark); }
+.radar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.radar-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cofit-dark);
+  line-height: 1.4;
+}
+.radar-scale {
+  font-size: 12px;
+  color: var(--ink-mute);
+  background: var(--cofit-bg);
+  padding: 3px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.radar-why {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.radar-fit {
+  font-size: 13.5px;
+  padding: 10px 14px;
+  background: var(--cofit-yellow-soft);
+  color: var(--cofit-dark);
+  border-radius: 3px;
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+.radar-fit strong { font-weight: 600; }
+.radar-handle {
+  font-size: 12.5px;
+  color: var(--cofit-green);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+.radar-this-week {
+  background: var(--cofit-dark-soft);
+  padding: 10px 14px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--cofit-dark);
+  line-height: 1.6;
+  border-left: 3px solid var(--cofit-orange);
+}
+.radar-this-week-label {
+  font-size: 10.5px;
+  color: var(--cofit-orange);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+}
+.radar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--cofit-green);
+  text-decoration: none;
+  font-weight: 500;
+}
+.radar-link:hover { text-decoration: underline; }
+
+/* ---------- Heat Topics ---------- */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.topic-card {
+  padding: 20px 22px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.topic-card:nth-child(1) { background: var(--cofit-dark-soft); }
+.topic-card:nth-child(2) { background: var(--cofit-orange-soft); }
+.topic-card:nth-child(3) { background: var(--cofit-yellow-soft); }
+.topic-num {
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.topic-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--cofit-dark);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.topic-body {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  flex: 1;
+}
+.topic-take {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 79, 81, 0.18);
+  font-size: 13px;
+  color: var(--cofit-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.topic-take-label {
+  font-size: 11px;
+  color: var(--cofit-green);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* ---------- Weight Bars ---------- */
+.weight-bars {
+  background: var(--surface);
+  padding: 20px 24px;
+  margin: 16px 0;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.weight-title {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.weight-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 48px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.weight-row:last-child { margin-bottom: 0; }
+.weight-label { font-size: 13px; font-weight: 500; color: var(--ink); }
+.weight-bar { height: 20px; border-radius: 2px; background: var(--cofit-dark); min-width: 24px; }
+.weight-bar.l2 { background: var(--cofit-green); }
+.weight-bar.l3 { background: var(--cofit-cyan); }
+.weight-bar.l4 { background: var(--cofit-orange); }
+.weight-value { font-size: 12px; color: var(--ink-mute); text-align: right; font-weight: 500; }
+
+/* ---------- Platform Blocks ---------- */
+.platform-block {
+  background: var(--surface);
+  margin-bottom: 12px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.platform-head {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 11px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.platform-name { font-weight: 600; font-size: 15px; }
+.platform-tag {
+  font-size: 11px;
+  color: var(--cofit-orange);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.platform-body { padding: 14px 22px; }
+.platform-point {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  border-bottom: 1px dashed #e5eded;
+  font-size: 14px;
+  line-height: 1.6;
+  align-items: start;
+}
+.platform-point:last-child { border-bottom: none; }
+.platform-point strong {
+  color: var(--cofit-green);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ---------- Meta Ads Split ---------- */
+.meta-ads {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 24px 28px;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+.meta-ads-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--cofit-yellow);
+}
+.meta-ads-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+.meta-ads-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.meta-ads-col h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  color: white;
+}
+.meta-ads-col ul { list-style: none; }
+.meta-ads-col li {
+  padding: 7px 0 7px 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  position: relative;
+}
+.meta-ads-col li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 14px;
+  width: 5px;
+  height: 5px;
+  background: var(--cofit-orange);
+  border-radius: 50%;
+}
+
+/* ---------- Case Card ---------- */
+.case-card {
+  background: var(--surface);
+  padding: 24px 28px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.case-label {
+  font-size: 11px;
+  color: var(--cofit-green);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+.case-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cofit-dark);
+  margin-bottom: 2px;
+}
+.case-sub {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin-bottom: 18px;
+}
+.case-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--cofit-dark);
+  border-bottom: 1px solid var(--cofit-dark);
+  margin-bottom: 20px;
+}
+.case-metric {
+  padding: 16px 8px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+.case-metric:last-child { border-right: none; }
+.case-metric-val {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--cofit-green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.case-metric-val .unit {
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.case-metric-label {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-top: 6px;
+}
+.case-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 18px 0;
+}
+.case-step {
+  background: var(--cofit-orange-soft);
+  padding: 12px 8px;
+  text-align: center;
+  position: relative;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--cofit-dark);
+  border-radius: 3px;
+}
+.case-step::after {
+  content: '→';
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cofit-orange);
+  font-weight: 700;
+  z-index: 1;
+}
+.case-step:last-child::after { display: none; }
+.case-step-label {
+  font-size: 11px;
+  color: var(--cofit-green);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.case-insights {
+  background: var(--cofit-yellow-soft);
+  border-left: 3px solid var(--cofit-orange);
+  padding: 16px 20px;
+  margin-top: 14px;
+}
+.case-insights-label {
+  font-size: 11px;
+  color: var(--cofit-dark);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.case-insights ol {
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+/* ---------- Signal Grid ---------- */
+.signal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.signal-card {
+  padding: 18px 22px;
+  border-radius: 4px;
+}
+.signal-card:nth-child(1) { background: var(--cofit-dark-soft); }
+.signal-card:nth-child(2) { background: var(--cofit-orange-soft); }
+.signal-card:nth-child(3) { background: var(--cofit-cyan-soft); }
+.signal-card:nth-child(4) { background: var(--cofit-yellow-soft); }
+.signal-num {
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.signal-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--cofit-dark);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.signal-body {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+/* ---------- Ingredient Cloud ---------- */
+.ingredient-cloud {
+  background: var(--surface);
+  padding: 20px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.ingredient-title {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.ingredient-row {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e5eded;
+  align-items: start;
+}
+.ingredient-row:last-child { border-bottom: none; }
+.ingredient-cat {
+  font-size: 12px;
+  color: var(--cofit-green);
+  letter-spacing: 0.02em;
+  padding-top: 6px;
+  font-weight: 600;
+}
+.ingredient-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.ingredient-tag {
+  font-size: 12.5px;
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  background: var(--cofit-bg);
+  border-radius: 12px;
+  color: var(--ink-soft);
+}
+.ingredient-tag.hot {
+  background: var(--cofit-orange);
+  color: var(--cofit-dark);
+  border-color: var(--cofit-orange);
+  font-weight: 600;
+}
+
+/* ---------- Tool of the week (single) ---------- */
+.tool-card {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 26px 30px;
+  border-radius: 4px;
+}
+.tool-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--cofit-yellow);
+  color: var(--cofit-dark);
+  border-radius: 8px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.tool-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+.tool-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.tool-how {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px 18px;
+  border-radius: 3px;
+  font-size: 13.5px;
+  color: white;
+  line-height: 1.65;
+}
+.tool-how-label {
+  font-size: 11px;
+  color: var(--cofit-orange);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+.tool-link {
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.tool-link a { color: var(--cofit-yellow); text-decoration: none; }
+.tool-cta {
+  display: inline-block;
+  margin-top: 18px;
+  background: var(--cofit-yellow);
+  color: var(--cofit-dark);
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: transform 0.15s;
+}
+.tool-cta:hover {
+  transform: translateY(-1px);
+  background: #ffd43a;
+}
+
+/* ---------- Citations ---------- */
+.citations {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 22px 26px;
+  border-radius: 4px;
+}
+.citations h4 {
+  font-size: 13px;
+  color: var(--cofit-dark);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.citations ol {
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+.citations li { margin-bottom: 6px; }
+.citations a {
+  color: var(--cofit-green);
+  text-decoration: none;
+  word-break: break-all;
+}
+.citations a:hover { text-decoration: underline; }
+.citations-note {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #e5eded;
+  line-height: 1.7;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 2px solid var(--cofit-dark);
+  font-size: 12px;
+  color: var(--ink-mute);
+  text-align: center;
+  line-height: 1.8;
+}
+footer .tagline {
+  color: var(--cofit-green);
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 720px) {
+  .container { padding: 20px 16px 60px; }
+  .masthead { gap: 14px; padding-bottom: 16px; margin-bottom: 20px; }
+  .meta { text-align: left; }
+  .meta .issue-num { font-size: 24px; }
+  .brand { flex-wrap: wrap; gap: 10px; }
+  .cofit-logo { height: 28px; }
+  .brand-divider { display: none; }
+
+  .tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+  .tab { flex-shrink: 0; font-size: 13px; padding: 7px 12px; }
+
+  .lede { padding: 22px 20px; }
+  .lede-hero { font-size: 19px; line-height: 1.45; }
+  .lede-list li { font-size: 14.5px; padding: 12px 0 12px 38px; }
+
+  .section-title { font-size: 20px; }
+  .section-num { font-size: 11px; }
+
+  .topic-grid { grid-template-columns: 1fr; }
+  .signal-grid { grid-template-columns: 1fr; }
+  .meta-ads-split { grid-template-columns: 1fr; gap: 20px; }
+  .meta-ads { padding: 22px 22px; }
+
+  .platform-point {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 10px 0;
+  }
+  .platform-head { padding: 11px 16px; }
+  .platform-body { padding: 12px 18px; }
+  .platform-tag { font-size: 11px; }
+
+  .case-card { padding: 22px 20px; }
+  .case-metrics { grid-template-columns: 1fr 1fr 1fr; }
+  .case-metric { padding: 14px 4px; }
+  .case-metric-val { font-size: 19px; }
+  .case-metric-val .unit { font-size: 11px; }
+  .case-metric-label { font-size: 11px; }
+
+  .case-flow {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .case-step:nth-child(2)::after { display: none; }
+  .case-step { padding: 12px 10px; font-size: 12.5px; }
+
+  .radar-card { padding: 18px 20px; }
+  .radar-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .radar-name { font-size: 15.5px; }
+
+  .ingredient-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .ingredient-cat { padding-top: 0; }
+
+  .tool-card { padding: 22px 22px; }
+  .tool-name { font-size: 19px; }
+
+  .weight-row { grid-template-columns: 50px 1fr 44px; gap: 8px; }
+}
+
+@media (max-width: 400px) {
+  .case-metric-val { font-size: 16px; }
+  .case-flow { grid-template-columns: 1fr; }
+  .case-step::after { display: none; }
+  .lede-hero { font-size: 17px; }
+  .issue-title .zh { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="brand">
+    <img class="cofit-logo" src="data:image/png;base64,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" alt="Cofit" />
+    <div class="brand-divider"></div>
+    <div class="issue-title">
+      <span class="zh">網紅中心週報</span>
+      <span class="en">KOL Weekly Pulse</span>
+    </div>
+  </div>
+  <div class="meta">
+    <span class="issue-num">#001</span>
+    <span class="issue-serial">FIRST ISSUE</span>
+    2026 · 04 · 20 → 04 · 26
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active">#001（本週）</button>
+  <span class="tab-note">歷史週報將於下期開始累積</span>
+</div>
+
+<!-- LEDE -->
+<div class="lede">
+  <span class="lede-label">本週三個訊號</span>
+  <div class="lede-hero">
+    精緻感退場，<em>真實感</em>上位；<br>
+    單一成分讓位給<em>整合方案</em>。
+  </div>
+  <ol class="lede-list">
+    <li>IG「<strong>分享數</strong>」權重已壓倒按讚，網紅 KPI 框架該換了</li>
+    <li><strong>適應原成分</strong>（南非醉茄、L-茶胺酸）在年輕社群延燒，保健品與八週課程雙題材</li>
+    <li>團購進入「<strong>複合配方 × 急救良方</strong>」時代，單一訴求產品觸頂</li>
+  </ol>
+</div>
+
+<!-- SECTION 01: 新星雷達 (5 items) -->
+<section>
+  <div class="section-header">
+    <span class="section-num">01 / RADAR</span>
+    <h2 class="section-title">本週新星雷達</h2>
+  </div>
+      <p style="font-size: 13px; color: var(--ink-mute); margin-bottom: 16px; line-height: 1.6;">本週篩選邏輯：避開已合作帳號，優先挑選「近期內容與保健/健康議題高度契合」或「粉絲剛好處於成長甜蜜點」的創作者。實際合作前請以內部名單比對。</p>
+  <div class="radar-list">
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">Angela 安琪拉營養師</div>
+        <span class="radar-scale">IG 8.7 萬粉</span>
+      </div>
+      <div class="radar-handle">@angela_dietitian</div>
+      <div class="radar-why">專營減脂、外食族、多囊性卵巢主題。有過實際保健品團購經驗（如優格團購），執行面成熟。營養師身份對保健品信任度極高。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>體重管理保健品、女性荷爾蒙調理、Cofit 八週課程共同發想</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選她</span>
+        本週適應原與壓力保健話題延燒，她的多囊性卵巢主題本身就與荷爾蒙、壓力相關，切入點現成。且 8.7 萬粉是「中型 × 高信任」的甜蜜點，性價比優於百萬大咖。
+      </div>
+      <a class="radar-link" href="https://www.instagram.com/angela_dietitian/" target="_blank">▸ 前往 IG</a>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">營養師肥比 Feibi</div>
+        <span class="radar-scale">知識類 TOP 3</span>
+      </div>
+      <div class="radar-handle">帳號 ID 請內部確認</div>
+      <div class="radar-why">AsiaKOL 台灣知識教育類 KOL 第三名。專業背景 + 親民口吻，常與廚具、食品、保健品廠商合作。外食族熱量計算、減脂食譜內容轉換率佳。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>代餐、高蛋白、助眠/壓力型保健品</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選她</span>
+        本週案例拆解提到「詳述優缺點」的敘事效果更好，而肥比的內容風格正是此類「誠實評測型」。若搭配急救型保健品的開團，可直接套用她慣用的「情境故事 → 產品登場」結構。
+      </div>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">末羊子 Joanne</div>
+        <span class="radar-scale">YT/IG 生活風格</span>
+      </div>
+      <div class="radar-handle">@dontkjoanne</div>
+      <div class="radar-why">極簡、收納、生活美學的 IG/YT 雙棲創作者。粉絲對「跨類商品」接受度高（保健品、標籤機都開過團），每季固定開團可談到 55 折推廣。適合「從未推過保健品」的第一次合作。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>女性保健、助眠類、生活情境結合 Cofit 課程</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選她</span>
+        本週核心訊號是「AI 完美疲勞反撲 → 真實感上位」。末羊子的內容調性本身就是低精緻、生活感強，完全符合 IG 2026 演算法偏好的方向。現在找她做保健品開團，時機正對。
+      </div>
+      <a class="radar-link" href="https://www.youtube.com/@dontkjoanne" target="_blank">▸ YT 頻道</a>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">Podcast《哇賽心理學》蔡宇哲博士</div>
+        <span class="radar-scale">睡眠 × 心理學</span>
+      </div>
+      <div class="radar-handle">Apple Podcast / Spotify 皆可搜尋</div>
+      <div class="radar-why">中正大學心理學博士，長期穩居台灣 Podcast 排行前 20。節目內容涵蓋睡眠品質、自律訓練、心理機制 — 主題與 Cofit 壓力/睡眠類課程高度契合。Podcast 聽眾對口播反感度低，轉換優勢強。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>助眠保健品口播、八週壓力管理課程的「知識串流」合作</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選他</span>
+        本週 Podcast 廣告年增 70% 是平台動態重點，而適應原成分的核心痛點（睡眠、壓力）正是蔡博士的節目主題。同步切入「新平台 × 對題內容」，開發成本與轉換都相對划算。
+      </div>
+      <a class="radar-link" href="https://open.spotify.com/" target="_blank">▸ Spotify 搜尋「哇賽心理學」</a>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">Nutri Life 智悅營養顧問</div>
+        <span class="radar-scale">IG 4.5 萬粉</span>
+      </div>
+      <div class="radar-handle">@eat.well.nutrition</div>
+      <div class="radar-why">註冊營養師團隊經營，定位「識揀適食」體重管理與病患飲食管理。貼文以簡易食譜、外食選擇、健康零食為主，與 Cofit 課程受眾高度重疊。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>體重管理保健、八週課程延伸內容共創、飲食科普合作</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選他們</span>
+        本週產業訊號指出「內容化科學溝通」是趨勢 — 配方、劑型、情境、研究要四位一體。Nutri Life 的圖文風格正是科學 + 生活的組合，非常適合 Cofit 八週課程的延伸內容共創。
+      </div>
+      <a class="radar-link" href="https://www.instagram.com/eat.well.nutrition/" target="_blank">▸ 前往 IG</a>
+    </div>
+
+  </div>
+
+<!-- SECTION 02: 熱度話題 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">02 / HEAT</span>
+    <h2 class="section-title">熱度與話題榜</h2>
+  </div>
+  <div class="topic-grid">
+    <div class="topic-card">
+      <div class="topic-num">TOPIC 01</div>
+      <div class="topic-title">AI 完美疲勞反撲</div>
+      <div class="topic-body">IG CEO 明示偏好「FaceTime 式」真實內容。粉絲看到過度精修，直覺反應是「AI 做的吧？」</div>
+      <div class="topic-take">
+        <span class="topic-take-label">OUR TAKE</span>
+        腳本保留破綻（口誤、素顏、雜物）轉換更好
+      </div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-num">TOPIC 02</div>
+      <div class="topic-title">適應原成分延燒</div>
+      <div class="topic-body">南非醉茄、紅景天、L-茶胺酸在 Z 世代討論升溫，情境多為「壓力大、睡不好、上班倦怠」</div>
+      <div class="topic-take">
+        <span class="topic-take-label">OUR TAKE</span>
+        保健品業配與 Cofit 壓力主題課程都能切
+      </div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-num">TOPIC 03</div>
+      <div class="topic-title">急救型 &gt; 長期保養</div>
+      <div class="topic-body">消費者要「當下有感」，不想等三個月。宿醉復原、便秘緩解、壓力急救是熱門切角</div>
+      <div class="topic-take">
+        <span class="topic-take-label">OUR TAKE</span>
+        腳本從情境痛點切入，比長期健康更抓人
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03: 平台動態 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">03 / PLATFORMS</span>
+    <h2 class="section-title">平台動態速報</h2>
+  </div>
+
+  <div class="weight-bars">
+    <div class="weight-title">IG 2026 互動訊號權重（相對值）</div>
+    <div class="weight-row">
+      <div class="weight-label">分享</div>
+      <div class="weight-bar" style="width: 100%;"></div>
+      <div class="weight-value">×4.2</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">收藏</div>
+      <div class="weight-bar l2" style="width: 70%;"></div>
+      <div class="weight-value">×2.8</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">留言</div>
+      <div class="weight-bar l3" style="width: 45%;"></div>
+      <div class="weight-value">×1.8</div>
+    </div>
+    <div class="weight-row">
+      <div class="weight-label">按讚</div>
+      <div class="weight-bar l4" style="width: 22%;"></div>
+      <div class="weight-value">×1.0</div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Instagram</span>
+      <span class="platform-tag">CORE</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>分享優先</strong>
+        <span>業配 KPI 加入「分享數」目標，不要只看觸及與按讚</span>
+      </div>
+      <div class="platform-point">
+        <strong>Trial Reels</strong>
+        <span>先發給非追蹤者測試，效果好再上牆，降低爆雷風險</span>
+      </div>
+      <div class="platform-point">
+        <strong>Carousel 回歸</strong>
+        <span>多圖貼文停留時間與收藏率高，保健品「成分拆解」特別適合</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Facebook</span>
+      <span class="platform-tag">STILL MATTERS</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>主戰場不變</strong>
+        <span>台灣 FB 觸及率仍超過 7 成，35+ 族群與家庭保健品依然強勢</span>
+      </div>
+      <div class="platform-point">
+        <strong>社團動能</strong>
+        <span>私密社團留言討論度比公開貼文更能帶單，同步經營社團能拉高轉換</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Threads</span>
+      <span class="platform-tag">RISING</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>IG 互導</strong>
+        <span>創作者正在實驗 IG ⇆ Threads 雙向導流，提案時可納入雙平台聯動</span>
+      </div>
+      <div class="platform-point">
+        <strong>文字為主</strong>
+        <span>適合議題型、專業型內容，八週課程的觀念教育、保健品科普很合適</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Podcast</span>
+      <span class="platform-tag">+70% YoY</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>年增 70%</strong>
+        <span>2024 年台灣 Podcast 廣告收入年增逾 70%，食品飲品業已是前三大廣告主</span>
+      </div>
+      <div class="platform-point">
+        <strong>聽眾輪廓</strong>
+        <span>35–44 歲女性為主，雙北佔七成收聽量；與 Cofit 主力客群高度重疊</span>
+      </div>
+      <div class="platform-point">
+        <strong>轉換優勢</strong>
+        <span>聽眾對口播廣告反感度低，超過 4 成會因節目推薦主動搜尋產品</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="meta-ads">
+    <div class="meta-ads-title">Meta 廣告與審核：本週怎麼過審又吸睛</div>
+    <div class="meta-ads-sub">FIXED COLUMN · 每週固定追蹤</div>
+    <div class="meta-ads-split">
+      <div class="meta-ads-col">
+        <h4>🌿 保健品方向</h4>
+        <ul>
+          <li>避開「治療、根治、療效」字眼，改用「幫助維持」「日常補充」</li>
+          <li>避免「前後對比照」的絕對訴求，改呈現「使用情境」</li>
+          <li>加入第三方來源（研究、檢驗報告）提升素材可信度與過審率</li>
+          <li>吸睛切角：把成分擬人化、用對話框呈現「身體在跟你說什麼」</li>
+        </ul>
+      </div>
+      <div class="meta-ads-col">
+        <h4>📚 八週課程方向</h4>
+        <ul>
+          <li>避免保證性用字「一定瘦、絕對變美」，用「目標導向」取代</li>
+          <li>學員成果圖需取得肖像同意 &amp; 加註「個人實際效果因人而異」</li>
+          <li>善用「提問式」開頭（Q&amp;A 廣告），審核較寬鬆、互動更高</li>
+          <li>吸睛切角：把課程做成「每週解鎖」的進度條視覺</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04: 案例拆解 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">04 / CASE</span>
+    <h2 class="section-title">本週案例拆解</h2>
+  </div>
+  <div class="case-card">
+    <div class="case-label">CASE STUDY</div>
+    <div class="case-title">愛莉莎莎 × 內衣團購</div>
+    <div class="case-sub">低佔比品類做出頂標銷售的經典範例</div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">10<span class="unit">天</span></div>
+        <div class="case-metric-label">檔期長度</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">7<span class="unit">萬件</span></div>
+        <div class="case-metric-label">銷售件數</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">2,200<span class="unit">萬</span></div>
+        <div class="case-metric-label">銷售額</div>
+      </div>
+    </div>
+    <div class="case-flow">
+      <div class="case-step">
+        <span class="case-step-label">HOOK</span>
+        「我自己就有困擾」開場
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">鋪陳</span>
+        親試＋講優缺點
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">切入</span>
+        限時＋揪團＋稀缺
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">CTA</span>
+        清楚連結＋QA
+      </div>
+    </div>
+    <div class="case-insights">
+      <div class="case-insights-label">KEY INSIGHTS</div>
+      <ol>
+        <li>「詳述優缺點」比「只講優點」更能建立信任</li>
+        <li>事前用 IG 限動投票/提問箱預熱，讓粉絲有參與感</li>
+        <li>複製到保健品：設計「我本來也懷疑 → 實測紀錄 → 誠實評價」敘事結構</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 05: 產業訊號 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">05 / INDUSTRY</span>
+    <h2 class="section-title">保健品 / Cofit 產業訊號</h2>
+  </div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 01</div>
+      <div class="signal-title">複合配方取代單一成分</div>
+      <div class="signal-body">消費者不想吃 5 罐，GABA＋L-茶胺酸＋鎂整合型助眠配方接受度提升</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 02</div>
+      <div class="signal-title">女性分齡保健擴大</div>
+      <div class="signal-body">25–35 歲經期調理、35–45 歲荷爾蒙平衡討論升溫，分眾越來越明顯</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 03</div>
+      <div class="signal-title">銀髮上線、年輕回流</div>
+      <div class="signal-body">55+ 線上買保健品比例上升；年輕族群反而回流實體。要考慮「粉絲在哪下單」</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 04</div>
+      <div class="signal-title">內容化科學溝通</div>
+      <div class="signal-body">消費者會先搜尋成分、看評論再下單。配方、劑型、情境、研究需四位一體</div>
+    </div>
+  </div>
+  <div class="ingredient-cloud">
+    <div class="ingredient-title">熱門成分關鍵字 · 本週</div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">睡眠壓力</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag hot">南非醉茄</span>
+        <span class="ingredient-tag hot">L-茶胺酸</span>
+        <span class="ingredient-tag">GABA</span>
+        <span class="ingredient-tag">鎂</span>
+        <span class="ingredient-tag">番紅花</span>
+      </div>
+    </div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">腸胃</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag hot">後生元</span>
+        <span class="ingredient-tag">益生菌</span>
+        <span class="ingredient-tag">膳食纖維</span>
+      </div>
+    </div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">美容</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag">小分子膠原</span>
+        <span class="ingredient-tag">白藜蘆醇</span>
+        <span class="ingredient-tag">穀胱甘肽</span>
+      </div>
+    </div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">代謝</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag hot">控糖成分</span>
+        <span class="ingredient-tag">高蛋白</span>
+        <span class="ingredient-tag">EPA/DHA</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 06: 本週工具 (single) -->
+<section>
+  <div class="section-header">
+    <span class="section-num">06 / TOOL</span>
+    <h2 class="section-title">本週工具</h2>
+  </div>
+  <div class="tool-card">
+    <span class="tool-badge">馬上可用</span>
+    <div class="tool-name">Wispr Flow</div>
+    <div class="tool-desc">語音轉文字的 AI 工具。一邊說話一邊自動生成「已經整理過、去除贅字」的文字稿，比自己打字快 3-4 倍。支援繁體中文口語辨識。</div>
+    <div class="tool-how">
+      <span class="tool-how-label">本週怎麼用</span>
+      跟網紅電話/視訊溝通完，直接對著 Wispr Flow 口述會議重點 → 1 分鐘生出給內部看的會議紀要。也可以口述腳本初稿給 Claude 修飾。
+    </div>
+    <a class="tool-cta" href="https://wisprflow.ai/r/JULIA1830" target="_blank">
+      🎁 用 Julia 的推薦連結註冊 → 免費領 1 個月 Pro
+    </a>
+    <div class="tool-link">點擊上方按鈕直接註冊，享有首月 Pro 版免費</div>
+  </div>
+</section>
+
+<!-- SECTION 07: 資料來源 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">07 / SOURCES</span>
+    <h2 class="section-title">資料來源與延伸閱讀</h2>
+  </div>
+  <div class="citations">
+    <h4>本週引用來源（按出現順序）</h4>
+    <ol>
+      <li>IG HERO — 2026 IG 演算法最新版<br><a href="https://www.ig-hero.com/" target="_blank">https://www.ig-hero.com/</a></li>
+      <li>Dcard 社群小編 forum — 2026 年 IG 演算法推薦邏輯<br><a href="https://www.dcard.tw/f/social_media_editors/p/260630876" target="_blank">https://www.dcard.tw/f/social_media_editors/p/260630876</a></li>
+      <li>Slashouse — 2026 年 IG 演算法更新：6 個必知新玩法<br><a href="https://www.slashouse.com/blogs/news/" target="_blank">https://www.slashouse.com/</a></li>
+      <li>Brand Lab 品牌招財貓 — 2026 IG 演算法大補帖<br><a href="https://brandlab-tw.com/2026-igtips/" target="_blank">https://brandlab-tw.com/2026-igtips/</a></li>
+      <li>foodNEXT — 台灣網路普及率破 95%，FB 仍是主戰場、TikTok 竄升最猛<br><a href="https://www.foodnext.net/column/columnist/paper/6111120817" target="_blank">https://www.foodnext.net/column/columnist/paper/6111120817</a></li>
+      <li>富昱生化 — 2026 年台灣保健食品趨勢解析<br><a href="https://fuelife.com/2026-trend/" target="_blank">https://fuelife.com/2026-trend/</a></li>
+      <li>會昌生技 — 2026 保健食品趨勢：五大關鍵市場動向<br><a href="https://www.atp-bio.com/en/news/industry/2026-supplements-trend-173.html" target="_blank">https://www.atp-bio.com/en/news/industry/2026-supplements-trend-173.html</a></li>
+      <li>隆圖傳媒 — 2025 台灣保健食品市場趨勢總覽<br><a href="https://www.bcmedia.com.tw/article_d.php?lang=tw&tb=5&id=154" target="_blank">https://www.bcmedia.com.tw/</a></li>
+      <li>EasyStore — 2026 最新社群電商團購趨勢<br><a href="https://blog.easystore.co/zh-tw/blog-group-buying-trend" target="_blank">https://blog.easystore.co/zh-tw/blog-group-buying-trend</a></li>
+      <li>EasyStore — 網紅團購趨勢：愛莉莎莎內衣案例拆解<br><a href="https://blog.easystore.co/zh-tw/blog-kol-group-buy" target="_blank">https://blog.easystore.co/zh-tw/blog-kol-group-buy</a></li>
+      <li>PreFluencer — 品牌必學網紅團購成功策略<br><a href="https://www.prefluencer.com/articles/detail/influencer-groupbuy-strategy-taiwan" target="_blank">https://www.prefluencer.com/</a></li>
+      <li>WACA — 網紅團購分潤管理（末羊子案例）<br><a href="https://www.waca.net/blog/id/580" target="_blank">https://www.waca.net/blog/id/580</a></li>
+      <li>未來商務 — Podcast 廣告市場規模突破 22.8 億美元<br><a href="https://fc.bnext.com.tw/articles/view/3807" target="_blank">https://fc.bnext.com.tw/articles/view/3807</a></li>
+      <li>INSIDE — Firstory 2025 Podcast 趨勢預測<br><a href="https://www.inside.com.tw/article/37526-fistory-2025-podcast" target="_blank">https://www.inside.com.tw/article/37526-fistory-2025-podcast</a></li>
+      <li>TNL 關鍵評論網 — 2025 上半年 Podcast 趨勢報告<br><a href="https://www.thenewslens.com/article/256471" target="_blank">https://www.thenewslens.com/article/256471</a></li>
+      <li>Angela 安琪拉營養師 IG — @angela_dietitian<br><a href="https://www.instagram.com/angela_dietitian/" target="_blank">https://www.instagram.com/angela_dietitian/</a></li>
+      <li>AsiaKOL — 營養師 KOL 影響力解析：保健品與品牌合作實戰攻略<br><a href="https://www.asiakol.com/article/726" target="_blank">https://www.asiakol.com/article/726</a></li>
+      <li>AsiaKOL — 知識教育 KOL Top 3 分析（營養師肥比 Feibi）<br><a href="https://www.asiakol.com/article/246" target="_blank">https://www.asiakol.com/article/246</a></li>
+      <li>愛他命創醫行銷 — 保健食品代言：醫師 KOL vs 一般 KOL 效益分析<br><a href="https://www.itamins.com.tw/comparing-the-marketing-effectiveness-of-physician-kol-general-kol-and-celebrity-endorsements/" target="_blank">https://www.itamins.com.tw/</a></li>
+      <li>聲歷其境 — 廣播金鐘獎 Podcast 節目推薦（哇賽心理學）<br><a href="https://allaroundyou.com.tw/taiwan-podcast-recommendations/" target="_blank">https://allaroundyou.com.tw/</a></li>
+    </ol>
+    <div class="citations-note">
+      本週報由 Cofit 網紅中心團隊彙整公開資料，僅供內部參考。引用來源若有內容爭議或最新更新，請以原始連結為準。私人數據（如具體網紅實際業配成效、Cofit 內部轉換率）未納入本報告。
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tagline">Change behavior, live better.</div>
+  COFIT · KOL Center · Weekly Pulse · Issue #001 · 2026
+</footer>
+
+</div>
+</body>
+</html>

@@ -38,7 +38,7 @@ VISIBLE_COUNT = 6  # 嵌入 Google Sites 的框高度固定，只顯示最近幾
 
 def render_row(issue):
     is_latest = issue is latest
-    return f'''    <a class="row{' latest' if is_latest else ''}" href="{issue['file']}" target="_top">
+    return f'''    <a class="row{' latest' if is_latest else ''}" href="{issue['file']}" target="_blank" rel="noopener">
       <span class="num">#{issue['number']}</span>
       <span class="date">{issue['date']}</span>
       <span class="head">{html.escape(issue['headline'])}</span>
@@ -89,7 +89,7 @@ index_html = f'''<!doctype html>
 <div class="wrap">
   <h1>網紅中心週報 KOL Weekly Pulse</h1>
   <p class="sub">每週二發布 · 共 {len(issues)} 期 · 最新一期 #{latest['number']}（{latest['date']}）</p>
-  <a class="cta" href="{latest['file']}" target="_top">▸ 看本週 #{latest['number']}</a>
+  <a class="cta" href="{latest['file']}" target="_blank" rel="noopener">▸ 看本週 #{latest['number']}</a>
 {rows}
 </div>
 </body>

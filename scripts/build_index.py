@@ -33,15 +33,30 @@ issues = sorted(
 )
 latest = issues[0]
 
-rows = "\n".join(
-    f'''    <a class="row{' latest' if issue is latest else ''}" href="{issue['file']}">
+VISIBLE_COUNT = 6  # 嵌入 Google Sites 的框高度固定，只顯示最近幾期，其餘收進「更早的期數」
+
+
+def render_row(issue):
+    is_latest = issue is latest
+    return f'''    <a class="row{' latest' if is_latest else ''}" href="{issue['file']}" target="_top">
       <span class="num">#{issue['number']}</span>
       <span class="date">{issue['date']}</span>
       <span class="head">{html.escape(issue['headline'])}</span>
-      {'<span class="tag">本週</span>' if issue is latest else ''}
+      {'<span class="tag">本週</span>' if is_latest else ''}
     </a>'''
-    for issue in issues
+
+
+recent_rows = "\n".join(render_row(issue) for issue in issues[:VISIBLE_COUNT])
+older_issues = issues[VISIBLE_COUNT:]
+older_block = (
+    f'''  <details class="older">
+    <summary>看更早的 {len(older_issues)} 期</summary>
+{"\n".join(render_row(issue) for issue in older_issues)}
+  </details>'''
+    if older_issues
+    else ""
 )
+rows = recent_rows + "\n" + older_block
 
 index_html = f'''<!doctype html>
 <html lang="zh-Hant">
@@ -65,6 +80,8 @@ index_html = f'''<!doctype html>
   .date {{ color:var(--mute); font-size:13px; }}
   .head {{ font-size:14px; line-height:1.5; }}
   .tag {{ background:var(--yellow); color:var(--dark); font-size:12px; font-weight:700; padding:2px 8px; border-radius:8px; }}
+  .older summary {{ cursor:pointer; padding:10px 4px; color:var(--dark); font-weight:700; font-size:14px; }}
+  .older summary:hover {{ color:var(--green); }}
   @media (max-width:560px) {{ .row {{ grid-template-columns:48px 1fr auto; }} .date {{ display:none; }} }}
 </style>
 </head>

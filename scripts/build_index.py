@@ -48,10 +48,11 @@ def render_row(issue):
 
 recent_rows = "\n".join(render_row(issue) for issue in issues[:VISIBLE_COUNT])
 older_issues = issues[VISIBLE_COUNT:]
+older_rows = "\n".join(render_row(issue) for issue in older_issues)  # 先算好：f-string 裡放反斜線在 Python 3.11 會報錯
 older_block = (
     f'''  <details class="older">
     <summary>看更早的 {len(older_issues)} 期</summary>
-{"\n".join(render_row(issue) for issue in older_issues)}
+{older_rows}
   </details>'''
     if older_issues
     else ""

@@ -1,0 +1,1473 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>KOL Weekly Pulse #015｜Cofit 網紅中心週報</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --cofit-dark: #004f51;
+  --cofit-green: #168e6b;
+  --cofit-orange: #ffb46e;
+  --cofit-yellow: #ffea85;
+  --cofit-cyan: #00c2e0;
+  --cofit-coral: #ff6b81;
+  --cofit-bg: #f8f8f8;
+
+  --ink: #1a2a2b;
+  --ink-soft: #3d5152;
+  --ink-mute: #6a7a7b;
+  --surface: #ffffff;
+  --line: #d5dede;
+  --cofit-dark-soft: #e6efef;
+  --cofit-orange-soft: #fff3e6;
+  --cofit-yellow-soft: #fff9dd;
+  --cofit-cyan-soft: #e0f7fb;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  background: var(--cofit-bg);
+  color: var(--ink);
+  font-family: 'PingFang TC', '蘋方-繁', 'Noto Sans TC', -apple-system, sans-serif;
+  font-weight: 400;
+  line-height: 1.75;
+  letter-spacing: 0.01em;
+  -webkit-font-smoothing: antialiased;
+}
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 40px 32px 80px;
+}
+
+/* ---------- Header ---------- */
+.masthead {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--cofit-dark);
+  margin-bottom: 28px;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.cofit-logo {
+  height: 36px;
+  width: auto;
+  display: block;
+}
+.brand-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--cofit-dark);
+  opacity: 0.3;
+}
+.issue-title {
+  font-size: 14px;
+  color: var(--cofit-dark);
+  font-weight: 500;
+  line-height: 1.3;
+}
+.issue-title .zh { display: block; font-weight: 600; }
+.issue-title .en { font-size: 11px; color: var(--ink-mute); font-weight: 400; letter-spacing: 0.05em; }
+.meta {
+  text-align: right;
+  font-size: 12px;
+  color: var(--ink-mute);
+}
+.meta .issue-num {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--cofit-dark);
+  letter-spacing: 0.02em;
+  display: block;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.meta .issue-serial {
+  font-size: 11px;
+  color: var(--cofit-green);
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ---------- Tabs ---------- */
+.tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+.tab {
+  padding: 7px 14px;
+  font-size: 13px;
+  background: var(--surface);
+  color: var(--ink-soft);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+.tab:hover { background: var(--cofit-dark-soft); }
+.tab.active {
+  background: var(--cofit-dark);
+  color: white;
+  border-color: var(--cofit-dark);
+  font-weight: 500;
+}
+.tab-note {
+  font-size: 12px;
+  color: var(--ink-mute);
+  align-self: center;
+  font-style: italic;
+}
+
+/* ---------- Lede ---------- */
+.lede {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 26px 30px;
+  margin-bottom: 36px;
+  border-radius: 4px;
+}
+.lede-label {
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: var(--cofit-orange);
+  margin-bottom: 14px;
+  display: block;
+  font-weight: 500;
+}
+.lede-hero {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 1.5;
+  margin-bottom: 18px;
+  color: white;
+}
+.lede-hero em {
+  font-style: normal;
+  color: var(--cofit-yellow);
+}
+.lede-list {
+  list-style: none;
+  counter-reset: lede;
+}
+.lede-list li {
+  counter-increment: lede;
+  padding: 13px 0 13px 42px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  position: relative;
+  font-size: 15px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+}
+.lede-list li::before {
+  content: counter(lede, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 13px;
+  font-size: 13px;
+  color: var(--cofit-orange);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+}
+.lede-list strong {
+  color: var(--cofit-yellow);
+  font-weight: 500;
+}
+
+/* ---------- Section ---------- */
+section { margin-bottom: 52px; }
+.section-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 22px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+  flex-wrap: wrap;
+}
+.section-num {
+  font-size: 12px;
+  color: var(--cofit-green);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+}
+.section-title {
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--cofit-dark);
+  letter-spacing: -0.01em;
+}
+
+/* ---------- Radar Cards ---------- */
+.radar-list { display: grid; gap: 14px; }
+.radar-card {
+  background: var(--surface);
+  padding: 20px 24px;
+  border-left: 4px solid var(--cofit-green);
+  border-radius: 0 4px 4px 0;
+  box-shadow: 0 1px 0 #e5eded;
+}
+.radar-card:nth-child(2) { border-left-color: var(--cofit-orange); }
+.radar-card:nth-child(3) { border-left-color: var(--cofit-cyan); }
+.radar-card:nth-child(4) { border-left-color: var(--cofit-coral); }
+.radar-card:nth-child(5) { border-left-color: var(--cofit-dark); }
+.radar-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+.radar-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--cofit-dark);
+  line-height: 1.4;
+}
+.radar-scale {
+  font-size: 12px;
+  color: var(--ink-mute);
+  background: var(--cofit-bg);
+  padding: 3px 10px;
+  border-radius: 10px;
+  white-space: nowrap;
+}
+.radar-why {
+  font-size: 14px;
+  color: var(--ink-soft);
+  line-height: 1.7;
+  margin-bottom: 10px;
+}
+.radar-fit {
+  font-size: 13.5px;
+  padding: 10px 14px;
+  background: var(--cofit-yellow-soft);
+  color: var(--cofit-dark);
+  border-radius: 3px;
+  margin-bottom: 10px;
+  line-height: 1.55;
+}
+.radar-fit strong { font-weight: 600; }
+.radar-handle {
+  font-size: 12.5px;
+  color: var(--cofit-green);
+  margin-bottom: 10px;
+  letter-spacing: 0.02em;
+  font-weight: 500;
+}
+.radar-this-week {
+  background: var(--cofit-dark-soft);
+  padding: 10px 14px;
+  border-radius: 3px;
+  margin-bottom: 10px;
+  font-size: 13px;
+  color: var(--cofit-dark);
+  line-height: 1.6;
+  border-left: 3px solid var(--cofit-orange);
+}
+.radar-this-week-label {
+  font-size: 10.5px;
+  color: var(--cofit-orange);
+  letter-spacing: 0.12em;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 5px;
+}
+.radar-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 13px;
+  color: var(--cofit-green);
+  text-decoration: none;
+  font-weight: 500;
+}
+.radar-link:hover { text-decoration: underline; }
+
+/* ---------- Heat Topics ---------- */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+.topic-card {
+  padding: 20px 22px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+}
+.topic-card:nth-child(1) { background: var(--cofit-dark-soft); }
+.topic-card:nth-child(2) { background: var(--cofit-orange-soft); }
+.topic-card:nth-child(3) { background: var(--cofit-yellow-soft); }
+.topic-num {
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.topic-title {
+  font-weight: 600;
+  font-size: 15px;
+  color: var(--cofit-dark);
+  margin-bottom: 10px;
+  line-height: 1.4;
+}
+.topic-body {
+  font-size: 13.5px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+  flex: 1;
+}
+.topic-take {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(0, 79, 81, 0.18);
+  font-size: 13px;
+  color: var(--cofit-dark);
+  font-weight: 500;
+  line-height: 1.5;
+}
+.topic-take-label {
+  font-size: 11px;
+  color: var(--cofit-green);
+  letter-spacing: 0.12em;
+  display: block;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+/* ---------- Weight Bars ---------- */
+.weight-bars {
+  background: var(--surface);
+  padding: 20px 24px;
+  margin: 16px 0;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.weight-title {
+  font-size: 13px;
+  color: var(--ink-soft);
+  margin-bottom: 14px;
+  font-weight: 500;
+}
+.weight-row {
+  display: grid;
+  grid-template-columns: 50px 1fr 48px;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+.weight-row:last-child { margin-bottom: 0; }
+.weight-label { font-size: 13px; font-weight: 500; color: var(--ink); }
+.weight-bar { height: 20px; border-radius: 2px; background: var(--cofit-dark); min-width: 24px; }
+.weight-bar.l2 { background: var(--cofit-green); }
+.weight-bar.l3 { background: var(--cofit-cyan); }
+.weight-bar.l4 { background: var(--cofit-orange); }
+.weight-value { font-size: 12px; color: var(--ink-mute); text-align: right; font-weight: 500; }
+
+/* ---------- Platform Blocks ---------- */
+.platform-block {
+  background: var(--surface);
+  margin-bottom: 12px;
+  border-radius: 4px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+.platform-head {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 11px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+.platform-name { font-weight: 600; font-size: 15px; }
+.platform-tag {
+  font-size: 11px;
+  color: var(--cofit-orange);
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  white-space: nowrap;
+}
+.platform-body { padding: 14px 22px; }
+.platform-point {
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 14px;
+  border-bottom: 1px dashed #e5eded;
+  font-size: 14px;
+  line-height: 1.6;
+  align-items: start;
+}
+.platform-point:last-child { border-bottom: none; }
+.platform-point strong {
+  color: var(--cofit-green);
+  font-weight: 600;
+  font-size: 13px;
+}
+
+/* ---------- Meta Ads Split ---------- */
+.meta-ads {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 24px 28px;
+  margin-top: 16px;
+  border-radius: 4px;
+}
+.meta-ads-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--cofit-yellow);
+}
+.meta-ads-sub {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 20px;
+  letter-spacing: 0.12em;
+  font-weight: 500;
+}
+.meta-ads-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+.meta-ads-col h4 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.22);
+  color: white;
+}
+.meta-ads-col ul { list-style: none; }
+.meta-ads-col li {
+  padding: 7px 0 7px 16px;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.88);
+  position: relative;
+}
+.meta-ads-col li::before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 14px;
+  width: 5px;
+  height: 5px;
+  background: var(--cofit-orange);
+  border-radius: 50%;
+}
+
+/* ---------- Case Card ---------- */
+.case-card {
+  background: var(--surface);
+  padding: 24px 28px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.case-label {
+  font-size: 11px;
+  color: var(--cofit-green);
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  margin-bottom: 4px;
+}
+.case-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--cofit-dark);
+  margin-bottom: 2px;
+}
+.case-sub {
+  font-size: 13px;
+  color: var(--ink-mute);
+  margin-bottom: 18px;
+}
+.case-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  border-top: 1px solid var(--cofit-dark);
+  border-bottom: 1px solid var(--cofit-dark);
+  margin-bottom: 20px;
+}
+.case-metric {
+  padding: 16px 8px;
+  text-align: center;
+  border-right: 1px solid var(--line);
+}
+.case-metric:last-child { border-right: none; }
+.case-metric-val {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--cofit-green);
+  line-height: 1;
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+}
+.case-metric-val .unit {
+  font-size: 13px;
+  font-weight: 600;
+  margin-left: 2px;
+}
+.case-metric-label {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-top: 6px;
+}
+.case-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin: 18px 0;
+}
+.case-step {
+  background: var(--cofit-orange-soft);
+  padding: 12px 8px;
+  text-align: center;
+  position: relative;
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: var(--cofit-dark);
+  border-radius: 3px;
+}
+.case-step::after {
+  content: '→';
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--cofit-orange);
+  font-weight: 700;
+  z-index: 1;
+}
+.case-step:last-child::after { display: none; }
+.case-step-label {
+  font-size: 11px;
+  color: var(--cofit-green);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
+}
+.case-insights {
+  background: var(--cofit-yellow-soft);
+  border-left: 3px solid var(--cofit-orange);
+  padding: 16px 20px;
+  margin-top: 14px;
+}
+.case-insights-label {
+  font-size: 11px;
+  color: var(--cofit-dark);
+  letter-spacing: 0.15em;
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.case-insights ol {
+  padding-left: 20px;
+  font-size: 13.5px;
+  line-height: 1.75;
+  color: var(--ink-soft);
+}
+
+/* ---------- Signal Grid ---------- */
+.signal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.signal-card {
+  padding: 18px 22px;
+  border-radius: 4px;
+}
+.signal-card:nth-child(1) { background: var(--cofit-dark-soft); }
+.signal-card:nth-child(2) { background: var(--cofit-orange-soft); }
+.signal-card:nth-child(3) { background: var(--cofit-cyan-soft); }
+.signal-card:nth-child(4) { background: var(--cofit-yellow-soft); }
+.signal-num {
+  font-size: 11px;
+  color: var(--ink-mute);
+  letter-spacing: 0.1em;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.signal-title {
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--cofit-dark);
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.signal-body {
+  font-size: 13px;
+  color: var(--ink-soft);
+  line-height: 1.65;
+}
+
+/* ---------- Ingredient Cloud ---------- */
+.ingredient-cloud {
+  background: var(--surface);
+  padding: 20px 24px;
+  border-radius: 4px;
+  border: 1px solid var(--line);
+}
+.ingredient-title {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+.ingredient-row {
+  display: grid;
+  grid-template-columns: 75px 1fr;
+  gap: 14px;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e5eded;
+  align-items: start;
+}
+.ingredient-row:last-child { border-bottom: none; }
+.ingredient-cat {
+  font-size: 12px;
+  color: var(--cofit-green);
+  letter-spacing: 0.02em;
+  padding-top: 6px;
+  font-weight: 600;
+}
+.ingredient-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.ingredient-tag {
+  font-size: 12.5px;
+  padding: 5px 11px;
+  border: 1px solid var(--line);
+  background: var(--cofit-bg);
+  border-radius: 12px;
+  color: var(--ink-soft);
+}
+.ingredient-tag.hot {
+  background: var(--cofit-orange);
+  color: var(--cofit-dark);
+  border-color: var(--cofit-orange);
+  font-weight: 600;
+}
+
+/* ---------- Tool of the week (single) ---------- */
+.tool-card {
+  background: var(--cofit-dark);
+  color: white;
+  padding: 26px 30px;
+  border-radius: 4px;
+}
+.tool-badge {
+  font-size: 11px;
+  padding: 4px 10px;
+  background: var(--cofit-yellow);
+  color: var(--cofit-dark);
+  border-radius: 8px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+  display: inline-block;
+  margin-bottom: 14px;
+}
+.tool-name {
+  font-size: 22px;
+  font-weight: 700;
+  color: white;
+  margin-bottom: 10px;
+}
+.tool-desc {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.88);
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+.tool-how {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 14px 18px;
+  border-radius: 3px;
+  font-size: 13.5px;
+  color: white;
+  line-height: 1.65;
+}
+.tool-how-label {
+  font-size: 11px;
+  color: var(--cofit-orange);
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 6px;
+}
+.tool-link {
+  margin-top: 14px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+}
+.tool-link a { color: var(--cofit-yellow); text-decoration: none; }
+.tool-cta {
+  display: inline-block;
+  margin-top: 18px;
+  background: var(--cofit-yellow);
+  color: var(--cofit-dark);
+  padding: 12px 22px;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
+  letter-spacing: 0.01em;
+  transition: transform 0.15s;
+}
+.tool-cta:hover {
+  transform: translateY(-1px);
+  background: #ffd43a;
+}
+
+/* ---------- Citations ---------- */
+.citations {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 22px 26px;
+  border-radius: 4px;
+}
+.citations h4 {
+  font-size: 13px;
+  color: var(--cofit-dark);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+.citations ol {
+  padding-left: 20px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: var(--ink-soft);
+}
+.citations li { margin-bottom: 6px; }
+.citations a {
+  color: var(--cofit-green);
+  text-decoration: none;
+  word-break: break-all;
+}
+.citations a:hover { text-decoration: underline; }
+.citations-note {
+  font-size: 12px;
+  color: var(--ink-mute);
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px dashed #e5eded;
+  line-height: 1.7;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  margin-top: 60px;
+  padding-top: 20px;
+  border-top: 2px solid var(--cofit-dark);
+  font-size: 12px;
+  color: var(--ink-mute);
+  text-align: center;
+  line-height: 1.8;
+}
+footer .tagline {
+  color: var(--cofit-green);
+  font-style: italic;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+/* ---------- Mobile Responsive ---------- */
+@media (max-width: 720px) {
+  .container { padding: 20px 16px 60px; }
+  .masthead { gap: 14px; padding-bottom: 16px; margin-bottom: 20px; }
+  .meta { text-align: left; }
+  .meta .issue-num { font-size: 24px; }
+  .brand { flex-wrap: wrap; gap: 10px; }
+  .cofit-logo { height: 28px; }
+  .brand-divider { display: none; }
+
+  .tabs { overflow-x: auto; flex-wrap: nowrap; -webkit-overflow-scrolling: touch; padding-bottom: 4px; }
+  .tab { flex-shrink: 0; font-size: 13px; padding: 7px 12px; }
+
+  .lede { padding: 22px 20px; }
+  .lede-hero { font-size: 19px; line-height: 1.45; }
+  .lede-list li { font-size: 14.5px; padding: 12px 0 12px 38px; }
+
+  .section-title { font-size: 20px; }
+  .section-num { font-size: 11px; }
+
+  .topic-grid { grid-template-columns: 1fr; }
+  .signal-grid { grid-template-columns: 1fr; }
+  .meta-ads-split { grid-template-columns: 1fr; gap: 20px; }
+  .meta-ads { padding: 22px 22px; }
+
+  .platform-point {
+    grid-template-columns: 1fr;
+    gap: 4px;
+    padding: 10px 0;
+  }
+  .platform-head { padding: 11px 16px; }
+  .platform-body { padding: 12px 18px; }
+  .platform-tag { font-size: 11px; }
+
+  .case-card { padding: 22px 20px; }
+  .case-metrics { grid-template-columns: 1fr 1fr 1fr; }
+  .case-metric { padding: 14px 4px; }
+  .case-metric-val { font-size: 19px; }
+  .case-metric-val .unit { font-size: 11px; }
+  .case-metric-label { font-size: 11px; }
+
+  .case-flow {
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+  }
+  .case-step:nth-child(2)::after { display: none; }
+  .case-step { padding: 12px 10px; font-size: 12.5px; }
+
+  .radar-card { padding: 18px 20px; }
+  .radar-head { flex-direction: column; align-items: flex-start; gap: 6px; }
+  .radar-name { font-size: 15.5px; }
+
+  .ingredient-row {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .ingredient-cat { padding-top: 0; }
+
+  .tool-card { padding: 22px 22px; }
+  .tool-name { font-size: 19px; }
+
+  .weight-row { grid-template-columns: 50px 1fr 44px; gap: 8px; }
+}
+
+@media (max-width: 400px) {
+  .case-metric-val { font-size: 16px; }
+  .case-flow { grid-template-columns: 1fr; }
+  .case-step::after { display: none; }
+  .lede-hero { font-size: 17px; }
+  .issue-title .zh { font-size: 13px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+<!-- MASTHEAD -->
+<header class="masthead">
+  <div class="brand">
+    <img class="cofit-logo" src="data:image/png;base64,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" alt="Cofit" />
+    <div class="brand-divider"></div>
+    <div class="issue-title">
+      <span class="zh">網紅中心週報</span>
+      <span class="en">KOL Weekly Pulse</span>
+    </div>
+  </div>
+  <div class="meta">
+    <span class="issue-num">#015</span>
+    2026 · 11 · 24 發布
+  </div>
+</header>
+
+<!-- TABS -->
+<div class="tabs">
+  <button class="tab active">#015（本週）</button>
+  <span class="tab-note">歷史週報請至入口頁查看</span>
+</div>
+
+<!-- LEDE -->
+<div class="lede">
+  <span class="lede-label">本週三個訊號</span>
+  <div class="lede-hero">
+    流量變貴，<em>社交跑</em>與<em>熟客</em><br>更值錢。
+  </div>
+  <ol class="lede-list">
+    <li>🆕 IG 限動發布後<strong>15 分鐘內可修改</strong>（11/18）</li>
+    <li>🆕 皮克敏路跑<strong>3.5K 非競速</strong>，報名到 12/2</li>
+    <li>網購業者增幅是銷售額 4.5 倍：<strong>流量通膨</strong></li>
+  </ol>
+</div>
+
+<!-- SECTION 01: 新星雷達 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">01 / RADAR</span>
+    <h2 class="section-title">本週新星雷達</h2>
+  </div>
+  <p style="font-size: 13px; color: var(--ink-mute); margin-bottom: 16px; line-height: 1.6;">本期主軸是「社交跑」與「雙 12 前的熟客經營」。名單已比對【重要】2026 KOL 網紅表單（5 位皆不在表單內），並避開 #012–#014 推薦過的帳號；標示「內部」者為 Cofit／初日自家人員。每張卡都做了競品檢查（自己賣減重課程、營養諮詢、飲食方案、線上陪跑，或賣蛋白飲、保健品的不列入）。<strong>本期不足之處：</strong>粉絲數全部查不到（寫「待查證」），多數帳號代號也未能直接開帳號確認；Coffee Run 發起人可能是微型帳號，但規模未查證。醫師一律只做衛教，不背書產品功效（醫師法 §25）。</p>
+  <div class="radar-list">
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">思思醫師｜家醫科（初日診所）</div>
+        <span class="radar-scale">初日醫學 · 內部 · 粉絲數待查證</span>
+      </div>
+      <div class="radar-handle">IG @neillee7911 · 個人專欄 drneil.tw</div>
+      <div class="radar-why">初日診所的家醫科醫師，以家醫角度寫代謝與體重管理衛教。2026/3 在專欄發表〈肌肉與瘦瘦針的互補關係〉，整理減重過程怎麼保住肌肉。#011 介紹過，本期換「跑步與肌肉」的切角再列。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>屬內部資源，不需另外洽談。排一支「第一次跑 3.5K 前，肌肉和三餐要準備什麼」衛教短影音：醫師講肌肉與運動安全，Cofit 營養師接手講跑前跑後怎麼吃；不談任何產品功效</div>
+      <div style="font-size: 12.5px; color: var(--ink-mute); margin: 8px 0; line-height: 1.6;"><strong style="color: var(--cofit-green);">競品檢查 ✓</strong> 初日自家醫師，屬內部資源；只做衛教，不跟保健品功效掛鉤</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選他</span>
+        熱度 #2 社交跑正熱，案例 02 的皮克敏路跑把大量「第一次報名」的新手帶進來。由自家醫師講「新手怎麼開始才安全」，比單純喊口號更可信，也能接到八週課程。
+      </div>
+      <a class="radar-link" href="https://www.instagram.com/neillee7911/" target="_blank">▸ 前往 IG</a>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">嚴可倫醫師｜骨科（光田綜合醫院）</div>
+        <span class="radar-scale">骨科醫師 · Facebook · 粉絲數待查證</span>
+      </div>
+      <div class="radar-handle">Facebook 個人帳號（帳號網址待查證）</div>
+      <div class="radar-why">台中光田綜合醫院骨科主治醫師。醫院介紹他擅長用淺白方式講疾病衛教，也常在臉書分享日常與醫療大小事。TVBS 健康 2.0 採訪他談路跑傷害：最常受傷的是膝蓋，以及跟腱到足底這一段；建議新手每週訓練量只加約 10%–20%。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>「新手跑者的膝蓋說明書」衛教串文：醫師講循序漸進、怎麼判斷該休息，Cofit 營養師補充跑後一餐的蛋白質怎麼配；不點名任何產品，不談療效</div>
+      <div style="font-size: 12.5px; color: var(--ink-mute); margin: 8px 0; line-height: 1.6;"><strong style="color: var(--cofit-coral);">競品檢查 △</strong> 醫院骨科醫師，搜尋未見減重課程、飲食方案或保健品自有品牌；但本期無法直接開帳號確認，洽談前請先看簡介與近期貼文</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選他</span>
+        對應案例 02 與聯名區提案 01（路跑賽事 × 營養師）：3.5K 吸引的多是新手，最常見的問題就是「跑完膝蓋痛」。先用骨科醫師的衛教接住這群人，Cofit 再談吃。
+      </div>
+      <a class="radar-link" href="https://news.tvbs.com.tw/health/2443188" target="_blank">▸ 閱讀 TVBS 報導</a>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">Podcast《跑步不要聽》</div>
+        <span class="radar-scale">運動類 Podcast · 逾 250 集 · 聽眾數待查證</span>
+      </div>
+      <div class="radar-handle">主持人：田鴻魁（魁哥）、王冠翔（象總）· Apple Podcasts／Spotify 搜尋節目名稱</div>
+      <div class="radar-why">棒球主播田鴻魁與跑步圈的王冠翔主持，每集多半邀一位來賓，從菁英選手、三鐵、登山到營養師、醫師都有。節目介紹文稱它是台灣運動類熱門排行第一（排行日期未標示），也出了同名書，從逾 250 集挑出 26 篇跑者故事。TVBS 今年初報導魁哥 50 歲因健康警訊開始跑，還帶爸媽、太太一起跑。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>當來賓、不只買口播：Cofit 營養師上節目談「市民跑者的三餐與年末聚餐」，主持人口播八週課程體驗價，用專屬優惠碼對帳。只講習慣養成，不承諾公斤數</div>
+      <div style="font-size: 12.5px; color: var(--ink-mute); margin: 8px 0; line-height: 1.6;"><strong style="color: var(--cofit-coral);">競品檢查 △</strong> 跑步主題節目，未見飲食、減重課程或保健品自有品牌；但節目有營養師來賓、主持人可能有跑步課程或其他贊助，洽談前請確認近期業配有無蛋白飲、保健品同品類</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選他們</span>
+        熱度 #2 社交跑＋案例 02 皮克敏路跑：新手跑者正在找「跑步圈的人怎麼講」。魁哥「中年因健康開始跑、帶全家跑」的故事，和八週課程「陪你改習慣」的主張很接近。
+      </div>
+      <a class="radar-link" href="https://vocus.cc/article/65fae190fd89780001d656ca" target="_blank">▸ 節目介紹</a>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">黃鈺琪｜Coffee Run（咖啡跑）發起人</div>
+        <span class="radar-scale">社交跑社群 · 可能為微型帳號 · 粉絲數待查證</span>
+      </div>
+      <div class="radar-handle">IG 帳號代號待查證（可搜尋「Coffee Run 咖啡跑」）</div>
+      <div class="radar-why">天下雜誌報導：跑齡約 12 年，大學時開始跑步，兩年前離開金融業，轉做跑步相關事業。她發起的 Coffee Run 是 5–7 公里的輕鬆跑，跑完一起去咖啡廳；報導當時已辦 14 場，一場週日活動約 40 位女性跑者參加，多數人不追求成績。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>「Coffee Run × 營養師早午餐」：跑完那一餐由 Cofit 營養師現場講「跑後怎麼點早午餐」，參加者拿八週課程體驗碼。小場、真實、好拍，不放體重數字</div>
+      <div style="font-size: 12.5px; color: var(--ink-mute); margin: 8px 0; line-height: 1.6;"><strong style="color: var(--cofit-coral);">競品檢查 △</strong> 經營跑步活動與相關事業（運動，不是飲食或減重方案），搜尋未見營養課程、蛋白飲或保健品；洽談前請確認有無線上飲食陪跑或運動營養品贊助</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選她</span>
+        熱度 #2 的核心就是「社交為主、跑步為輔」。在流量通膨（熱度 #3）的年代，一場 40 人、都是真實參加者的小活動，比買一支大流量貼文更容易對帳；也對應本週工具 Luma。
+      </div>
+      <a class="radar-link" href="https://www.cw.com.tw/article/5137392" target="_blank">▸ 閱讀天下雜誌報導</a>
+    </div>
+
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">高琹雯 Liz｜Podcast《美食關鍵詞》</div>
+        <span class="radar-scale">美食 · Podcast／YouTube · 粉絲數待查證</span>
+      </div>
+      <div class="radar-handle">Taster 美食加創辦人 · Apple Podcasts／Spotify 搜尋「美食關鍵詞」</div>
+      <div class="radar-why">前執業律師，2011 年開始寫美食部落格，2018 年創立網路媒體「Taster 美食加」，也經營 YouTube 與電商「美食加選物」。《美食關鍵詞》2020 年開播，談餐飲趨勢、名廚觀點；第三方平台可見最新一集是 2025/5，近期是否仍更新要先確認。</div>
+      <div class="radar-fit"><strong>適合切角：</strong>「年末聚餐怎麼點」：她從餐廳與菜單的角度講怎麼點一桌好菜，Cofit 營養師補充怎麼讓自己吃得剛好；用「怎麼選」取代「不能吃」，不寫熱量恐嚇</div>
+      <div style="font-size: 12.5px; color: var(--ink-mute); margin: 8px 0; line-height: 1.6;"><strong style="color: var(--cofit-coral);">競品檢查 △</strong> 美食媒體，不做減重或營養諮詢；但有自家電商「美食加選物」，請確認選品是否包含保健品、蛋白飲等與 Cofit 撞品類的商品，有的話只做內容合作、不做團購</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">為什麼本週選她</span>
+        熱度 #1 雙 11 收尾後，下一波是尾牙與年末聚餐；IG 限動可以改字（平台區）讓餐廳資訊、優惠碼寫錯也能補救。由懂吃的人來談「怎麼吃得剛好」，比營養師單方面提醒更容易被聽進去。
+      </div>
+      <a class="radar-link" href="https://www.tatlerasia.com/dining/the-industry/interview-liz-kao" target="_blank">▸ 閱讀 Tatler 專訪</a>
+    </div>
+
+  </div>
+</section>
+<!-- SECTION 02: 品牌跨界聯名 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">02 / COLLAB</span>
+    <h2 class="section-title">品牌跨界聯名・檔期合作</h2>
+  </div>
+  <p style="font-size: 13px; color: var(--ink-mute); margin-bottom: 16px; line-height: 1.6;">分兩段：上段是最近的聯名與檔期動態（內容為媒體報導，最終辦法以品牌官方公告為準）；下段是 Cofit 可主動提案的跨界方向。已排除 KOL 表單上已合作的品牌（如「Cofit 夏季團購 ft. 迪卡儂」）；和 Cofit 自家產品（蛋白飲、保健品、一對一、八週課程）同品類的只列「競品觀察」、不推合作。下段為策略發想，品牌皆未接洽。</p>
+
+  <div style="font-size: 13px; font-weight: 700; color: var(--cofit-dark); margin: 4px 0 10px;">最新聯名與檔期動態</div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <div class="signal-num">🆕 咖啡 × IP 集點 · 11/25–12/22</div>
+      <div class="signal-title">7-ELEVEN CITY PRIMA × Hello Kitty 丹寧集點</div>
+      <div class="signal-body">CITY PRIMA 中杯 1 點、大杯 2 點，集滿 6 點加價購丹寧包、保溫杯；買滿 200 元可 69 元加購 5 款隨機萌貼公仔。11/20–24 會員先預購，保溫杯組限量 150 組。<strong>學什麼：</strong>集點門檻設在「每天都會買的那杯」，一杯一杯把回訪養成習慣</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">🆕 IP × 路跑 × 服飾 · 報名 11/2–12/2</div>
+      <div class="signal-title">皮克敏路跑 2027（UNIQLO 協力 T 恤）</div>
+      <div class="signal-body">任天堂官方授權，2027/3 高雄、台中、新北三場，每場 3.5 公里、非競速；報名費 1,480／2,180 元，周邊按皮克敏顏色成套、不能混搭；11/19 前報名送限定手提包。<strong>學什麼：</strong>「非競速＋收集周邊」把不跑步的粉絲也拉進來（詳見案例 02）</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">🆕 服飾 × 設計師 · 11/20 上市</div>
+      <div class="signal-title">UNIQLO × Cecilie Bahnsen 2026 秋冬</div>
+      <div class="signal-body">共 14 款，包括花朵刷毛外套；部分款式只在指定店舖限量販售。<strong>學什麼：</strong>平價品牌找設計師聯名，靠「指定店才買得到」製造到店理由；和 #012 SALOMON × 蔡依林獨家店是同一招</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">超商 × 插畫 IP · 10/28 起延續</div>
+      <div class="signal-title">7-ELEVEN × Loveez 心動食光</div>
+      <div class="signal-body">超過 30 款聯名商品、5 間主題店、限定門市特價飲品，搭配免費 LINE 貼圖（#013 介紹過貼圖檔期，至 11/26）。<strong>學什麼：</strong>一個插畫 IP 同時撐商品、門市與官方帳號好友數，適合 Cofit 參考做數位周邊</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">競品觀察 · 蛋白飲 × 動漫 IP · 至 11/26</div>
+      <div class="signal-title">BASE&amp;U ×《進擊的巨人》檔期收尾</div>
+      <div class="signal-body">#012 起追蹤的 7-ELEVEN 高蛋白奶茶聯名，檔期到 11/26 結束；本期未查到同品類（蛋白飲、保健品）的新聯名。<strong>學什麼：</strong>和 Cofit 蛋白飲同品類，只觀察不合作；可看檔期結束後是否續推，作為雙 12、年節檔的參考</div>
+    </div>
+  </div>
+
+  <div style="font-size: 13px; font-weight: 700; color: var(--cofit-dark); margin: 22px 0 10px;">推薦 Cofit 可以主動提案的跨界合作</div>
+  <div class="radar-list">
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">新手友善路跑賽事主辦方（IP 路跑、城市夜跑等）</div>
+        <span class="radar-scale">完賽包 × 營養師 · 2027 春季賽</span>
+      </div>
+      <div class="radar-why"><strong>提案：</strong>「完賽包裡的營養師」：Cofit 營養師幫賽事做一份「賽前一週＋賽後一餐」電子指南，放進報名確認信與完賽包 QR；賽前兩週在賽事官方社群辦一場營養師直播。3.5K、5K 這類非競速賽報名的多是新手，正是最需要「怎麼開始」的人。</div>
+      <div class="radar-fit"><strong>業績怎麼來：</strong>指南最後一頁放八週課程「跑者專屬體驗價」，用賽事專屬碼對帳；賽事拿到免費的專業內容，Cofit 拿到一份精準的新手名單</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">注意</span>
+        賽事若已有蛋白飲、運動營養品或保健品贊助商，屬撞品類，先問清楚再提；文案講「完賽」「補充」，不講「燃脂」「跑完瘦幾公斤」；IP 授權賽事的素材使用要另外確認。
+      </div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">精品咖啡連鎖／超商咖啡集點檔期</div>
+        <span class="radar-scale">集點 × 習慣 · 年末</span>
+      </div>
+      <div class="radar-why"><strong>提案：</strong>借 CITY PRIMA 集點的熱度，提案「21 天早餐搭配卡」：咖啡品牌的集點卡背面印 Cofit 營養師的「一杯咖啡＋一份蛋白質」早餐組合，集滿點數的人再送八週課程體驗週。咖啡是每天的習慣，八週課程賣的也是習慣。</div>
+      <div class="radar-fit"><strong>業績怎麼來：</strong>集點卡 QR 導到八週課程體驗頁，用咖啡品牌專屬碼看轉換；咖啡品牌拿到「健康早餐」內容，提高早餐時段加購</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">注意</span>
+        不寫「黑咖啡燃脂」「喝咖啡會瘦」；咖啡品牌若有賣機能飲（例如上期的蔘咖啡）或蛋白飲，屬撞品類，只能做內容合作；超商檔期排程早，先從獨立連鎖咖啡試水溫。
+      </div>
+    </div>
+    <div class="radar-card">
+      <div class="radar-head">
+        <div class="radar-name">書店／網路書店（交換禮物季）</div>
+        <span class="radar-scale">禮物組 · 聖誕到年節</span>
+      </div>
+      <div class="radar-why"><strong>提案：</strong>「送一本書＋一個新習慣」交換禮物組：書店選幾本飲食、運動、生活習慣書，搭配 Cofit 八週課程體驗卡一起包裝成 500–1,000 元價位的交換禮物。年末交換禮物最怕送錯，「書＋體驗」安全又有心意。</div>
+      <div class="radar-fit"><strong>業績怎麼來：</strong>體驗卡兌換時要註冊 Cofit，體驗結束推完整八週課程；書店拿到差異化禮物組，用兌換碼對帳雙方業績</div>
+      <div class="radar-this-week">
+        <span class="radar-this-week-label">注意</span>
+        選書要避開「X 天瘦 X 公斤」、斷食療法這類書名，也避開作者自己有賣減重課程或保健品的書（競品）；體驗卡要寫清楚兌換期限。
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 03: 熱度話題 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">03 / HEAT</span>
+    <h2 class="section-title">熱度與話題榜</h2>
+  </div>
+  <div class="topic-grid">
+    <div class="topic-card">
+      <div class="topic-num">TOPIC 01 · 🆕</div>
+      <div class="topic-title">雙 11 收尾、雙 12 接棒</div>
+      <div class="topic-body">PChome 自稱雙 11 首小時訂單較上月同時段近 7 倍；蝦皮已預告 12/12 全站免運</div>
+      <div class="topic-take">
+        <span class="topic-take-label">OUR TAKE</span>
+        雙 12 不拚最低價，先找雙 11 買過的人回來
+      </div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-num">TOPIC 02</div>
+      <div class="topic-title">社交跑：跑步變成交朋友</div>
+      <div class="topic-body">皮克敏路跑 3.5K 不計時；Coffee Run 一場約 40 位女性跑者，跑完一起喝咖啡</div>
+      <div class="topic-take">
+        <span class="topic-take-label">OUR TAKE</span>
+        切「跑完一起吃什麼」，不談燃脂與公斤數
+      </div>
+    </div>
+    <div class="topic-card">
+      <div class="topic-num">TOPIC 03</div>
+      <div class="topic-title">流量通膨：網購愈來愈擠</div>
+      <div class="topic-body">網購業者家數增幅約是銷售額的 4.5 倍；前十大平台流量年減 0.8%</div>
+      <div class="topic-take">
+        <span class="topic-take-label">OUR TAKE</span>
+        KOL 合作看可對帳的回購，不只看曝光
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 04: 平台動態 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">04 / PLATFORMS</span>
+    <h2 class="section-title">平台動態速報</h2>
+  </div>
+
+  <div class="weight-bars">
+    <div class="weight-title">2026 上半年台灣電商月均流量年增率（104 部落格整理；前十大合計為 −0.8%，以最短條示意）</div>
+    <div class="weight-row" style="grid-template-columns: 96px 1fr 72px;">
+      <div class="weight-label">酷澎台灣</div>
+      <div class="weight-bar" style="width: 100%;"></div>
+      <div class="weight-value">約 +108%</div>
+    </div>
+    <div class="weight-row" style="grid-template-columns: 96px 1fr 72px;">
+      <div class="weight-label">誠品線上</div>
+      <div class="weight-bar l2" style="width: 20.4%;"></div>
+      <div class="weight-value">+22.0%</div>
+    </div>
+    <div class="weight-row" style="grid-template-columns: 96px 1fr 72px;">
+      <div class="weight-label">Costco 線上</div>
+      <div class="weight-bar l2" style="width: 15.6%;"></div>
+      <div class="weight-value">+16.9%</div>
+    </div>
+    <div class="weight-row" style="grid-template-columns: 96px 1fr 72px;">
+      <div class="weight-label">前十大合計</div>
+      <div class="weight-bar l2" style="width: 1.5%;"></div>
+      <div class="weight-value">−0.8%</div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Instagram</span>
+      <span class="platform-tag">CORE</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>🆕 限動發布後 15 分鐘內可編輯</strong>
+        <span>Adam Mosseri 11/18 宣布：限動發出後 15 分鐘內可以改文字、音樂、貼圖與塗鴉，改過的會顯示「已編輯」。陸續推出中，台灣上線時間未公布。團購限動的價格、優惠碼打錯，不用刪掉重發</span>
+      </div>
+      <div class="platform-point">
+        <strong>🆕 限動製作畫面更新</strong>
+        <span>同一波更新：多選照片更好用、任何尺寸照片都能加背景、新增貼圖。素材不用再特地裁成 9:16</span>
+      </div>
+      <div class="platform-point">
+        <strong>提醒：編輯有時間限制</strong>
+        <span>只有 15 分鐘、且會留下「已編輯」標記。合作創作者的限動仍要事前審稿，不能靠事後改；合規字眼（瘦、見效）一開始就不要出現</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Facebook</span>
+      <span class="platform-tag">STILL MATTERS</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>🆕 Creator Fast Track 更新（11/13）</strong>
+        <span>Meta 3 月公告的創作者方案於 11/13 更新：2 萬粉以上的創作者分享符合資格的 Reels，可拿 3 個月保證收入；新增「收益率」指標與「不計入觀看」的原因分析。台灣是否適用未確認</span>
+      </div>
+      <div class="platform-point">
+        <strong>Creator Assistant 擴大</strong>
+        <span>6 月起在美國、加拿大、印度推出的 AI 助理，會提出趨勢、幫忙擬留言回覆，回覆要創作者按下確認才送出。台灣尚未開放；合作帳號的留言回覆仍要真人把關健康相關說法</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Threads</span>
+      <span class="platform-tag">HEALTH TALK</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>本週未查到新的 Threads 官方更新</strong>
+        <span>最近一次第三方整理停在 11/9（刷新音效、Community card、Threads Friends 測試，#014 已介紹）。台灣仍未開放 Threads Friends</span>
+      </div>
+      <div class="platform-point">
+        <strong>串文分享到 IG 限動</strong>
+        <span>2 月起 Threads 貼文可以直接分享到 IG 限動。配合 IG 限動可編輯，Threads 討論串＋IG 限動導流可以一起排</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="platform-block">
+    <div class="platform-head">
+      <span class="platform-name">Podcast</span>
+      <span class="platform-tag">NICHE WINS</span>
+    </div>
+    <div class="platform-body">
+      <div class="platform-point">
+        <strong>本週未查到新的 Podcast 平台更新</strong>
+        <span>Spotify、YouTube 近期沒有可驗證的新公告。本期改看「垂直題材」：運動類的《跑步不要聽》聽眾集中、來賓常包含營養師與醫師，比大型綜合節目更好對準客群</span>
+      </div>
+      <div class="platform-point">
+        <strong>先看更新頻率</strong>
+        <span>《美食關鍵詞》第三方平台可見最新一集為 2025/5；合作前確認近 3 個月有沒有更新，沒更新就改談 YouTube 或 IG</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="meta-ads">
+    <div class="meta-ads-title">Meta 廣告與審核：本週怎麼過審又吸睛</div>
+    <div class="meta-ads-sub">FIXED COLUMN · 每週固定追蹤</div>
+    <div class="meta-ads-split">
+      <div class="meta-ads-col">
+        <h4>🌿 保健品方向</h4>
+        <ul>
+          <li>本週查不到 Meta 健康類廣告的新公告。政策頁仍寫明：飲食、健康、減重或增重產品要<strong style="color: var(--cofit-yellow); font-weight: 600;">鎖定 18 歲以上</strong></li>
+          <li>路跑話題正熱，保健品文案避開「護關節」「消除疲勞」「增加耐力」：在食品廣告屬功效宣稱</li>
+          <li>10/1 食藥署公布「活化勝」與代言醫師的違規廣告，累計裁罰 308 萬元仍續播；醫師素材只放衛教，不和產品放同一支</li>
+          <li>雙 12 檔期只寫價格與組合，不寫「囤貨保健康」「一盒顧全家」這類籠統健康承諾</li>
+        </ul>
+      </div>
+      <div class="meta-ads-col">
+        <h4>📚 八週課程方向</h4>
+        <ul>
+          <li>減重相關廣告維持 18+；素材不出現藥名、針劑、前後對比照</li>
+          <li>新切角「第一次跑 3.5K 的三餐」：教跑前跑後怎麼吃，主打完賽與習慣，不寫燃脂</li>
+          <li>社交切角：學員或 Coffee Run 類小活動的團體照，強調「有人陪」，參加者入鏡要取得同意</li>
+          <li>流量變貴：投放先找雙 11 期間互動過、看過課程頁的人做再行銷，用體驗價素材，不急著找新受眾</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 05: 案例拆解 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">05 / CASE</span>
+    <h2 class="section-title">本週案例拆解</h2>
+  </div>
+  <p style="font-size: 13px; color: var(--ink-mute); margin-bottom: 14px; line-height: 1.6;">本週查不到新的台灣億元級網紅團購（本季最大仍是 #011／#013 拆解過的蒂蒂生日團）。所以案例 01 看雙 11 單日業績最高的直播主之一，案例 02 看一場把「不跑步的人」拉進來的 IP 路跑。</p>
+  <div class="case-card" style="margin-bottom: 14px;">
+    <div class="case-label">CASE STUDY 01 · 直播 · 抖音雙 11 首日（中國）</div>
+    <div class="case-title">賈乃亮雙 11 首日直播：單日破 5.7 億元人民幣</div>
+    <div class="case-sub">中國市場案例，僅參考打法。銷售額為業界戰報、多家媒體報導；退貨率只出自一篇評論文章，未經查證</div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">5.7<span class="unit">億</span></div>
+        <div class="case-metric-label">首日銷售額（人民幣，10/21）</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">701<span class="unit">萬</span></div>
+        <div class="case-metric-label">直播間峰值觀看人次</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">12+<span class="unit">小時</span></div>
+        <div class="case-metric-label">連續直播（說法 12–13 小時）</div>
+      </div>
+    </div>
+    <div class="case-flow">
+      <div class="case-step">
+        <span class="case-step-label">HOOK</span>
+        演員轉型主播，雙 11 首日開播
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">鋪陳</span>
+        主播親自控場、少用助播
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">切入</span>
+        雅詩蘭黛等高單價美妝為主力
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">CTA</span>
+        超長直播，靠時長累積成交
+      </div>
+    </div>
+    <div class="case-insights">
+      <div class="case-insights-label">KEY INSIGHTS</div>
+      <ol>
+        <li>評論文章認為撐起業績的是高單價品牌，消費者看重品牌而不是主播的臉，所以衝動購買少（文中稱退貨率約 3%，未附官方數據）。Cofit 合作也該追「退貨與退款率」，不只看成交</li>
+        <li>主播自己控場、選品團隊在背後把關：對 Cofit 來說，合作前的選品與話術審稿比直播當天的折扣更重要</li>
+        <li>同一時期中國雙 11 大盤增速明顯放緩，大主播仍能創紀錄：流量集中在少數被信任的人身上。台灣的流量通膨（熱度 #3）也在往這個方向走</li>
+      </ol>
+    </div>
+  </div>
+  <div class="case-card">
+    <div class="case-label">CASE STUDY 02 · IP 活動 · 報名期 11/2–12/2</div>
+    <div class="case-title">皮克敏路跑 2027：把粉絲變成跑者</div>
+    <div class="case-sub">任天堂官方授權、UNIQLO 協力 T 恤。報導稱「粉絲瘋搶」，但沒有公布報名人數；數字為媒體整理的報名辦法</div>
+    <div class="case-metrics">
+      <div class="case-metric">
+        <div class="case-metric-val">3.5<span class="unit">公里</span></div>
+        <div class="case-metric-label">每場距離，非競速</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">3<span class="unit">場</span></div>
+        <div class="case-metric-label">高雄、台中、新北（2027/3）</div>
+      </div>
+      <div class="case-metric">
+        <div class="case-metric-val">1,480<span class="unit">元起</span></div>
+        <div class="case-metric-label">報名費（豪華組 2,180 元）</div>
+      </div>
+    </div>
+    <div class="case-flow">
+      <div class="case-step">
+        <span class="case-step-label">HOOK</span>
+        「史上首次官方聯名路跑」登台
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">鋪陳</span>
+        11/19 前報名送限定手提包
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">切入</span>
+        周邊按顏色成套、不能混搭
+      </div>
+      <div class="case-step">
+        <span class="case-step-label">CTA</span>
+        名額有限、額滿即止
+      </div>
+    </div>
+    <div class="case-insights">
+      <div class="case-insights-label">KEY INSIGHTS</div>
+      <ol>
+        <li>3.5 公里、不計時，門檻低到「沒在跑步的人也敢報」。八週課程的體驗也可以這樣設計：第一週任務小到一定做得到</li>
+        <li>早鳥禮＋顏色成套，讓人提早決定、甚至報兩場。Cofit 的雙 12 方案可以用「早鳥限定周邊」取代單純降價</li>
+        <li>報名的是一大群剛開始動的新手：骨科衛教（雷達 嚴可倫醫師）、跑前跑後怎麼吃（思思醫師、聯名提案 01）都是現成需求；但文案不寫「跑完瘦」，要寫「跑完怎麼吃」</li>
+      </ol>
+    </div>
+  </div>
+</section>
+<!-- SECTION 06: 產業訊號 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">06 / INDUSTRY</span>
+    <h2 class="section-title">保健品 / Cofit 產業訊號</h2>
+  </div>
+  <div class="signal-grid">
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 01</div>
+      <div class="signal-title">60 歲以上一年花 2.8 萬買保健品</div>
+      <div class="signal-body">好食課《2026 國人保健食品消費大調查》：國人平均年花約 24,000 元，60 歲以上約 28,000 元，業者估市場仍有約 25% 成長空間。調查為業者發表，樣本與方法未在報導中說明</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 02</div>
+      <div class="signal-title">17 項功能性成分擬改「登錄制」</div>
+      <div class="signal-body">好食課整理：衛福部 5 月公布 17 項功能性成分相關產品擬納入管理，方向類似日本「機能性表示食品」。正式規定與時程未定，Cofit 保健品的成分說明可先盤點、等公告</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 03</div>
+      <div class="signal-title">醫師代言違規，累計罰 308 萬仍續播</div>
+      <div class="signal-body">食藥署 10/1 公布「活化勝」與代言醫師宣稱「逆轉腎病」等違規廣告，地方衛生局多次裁罰後仍刊播，將督促加重處分。醫師合作只做衛教，不和產品同框</div>
+    </div>
+    <div class="signal-card">
+      <div class="signal-num">SIGNAL 04</div>
+      <div class="signal-title">流量變貴，有門市與會員的通路在長</div>
+      <div class="signal-body">104 部落格整理 2026 上半年電商流量：前十大合計年減 0.8%，但 Costco 線上、誠品線上兩位數成長，分析歸因於會員與門市。Cofit 的學員社群就是自己的「會員資產」</div>
+    </div>
+  </div>
+  <div class="ingredient-cloud">
+    <div class="ingredient-title">熱門成分關鍵字 · 常見詞彙（僅標有數據支持者為 HOT，數據來自好食課 2026 調查與食創獎入圍品類）</div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">睡眠壓力</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag hot">B 群</span>
+        <span class="ingredient-tag">GABA</span>
+        <span class="ingredient-tag">鎂</span>
+      </div>
+    </div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">腸胃</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag hot">益生菌</span>
+        <span class="ingredient-tag">膳食纖維</span>
+        <span class="ingredient-tag">聚餐季（話題）</span>
+      </div>
+    </div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">美容</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag hot">葉黃素</span>
+        <span class="ingredient-tag hot">維生素 C</span>
+        <span class="ingredient-tag">膠原蛋白</span>
+      </div>
+    </div>
+    <div class="ingredient-row">
+      <div class="ingredient-cat">代謝</div>
+      <div class="ingredient-tags">
+        <span class="ingredient-tag hot">魚油</span>
+        <span class="ingredient-tag">蛋白質（跑者話題）</span>
+        <span class="ingredient-tag">關節保健（熟齡）</span>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- SECTION 07: 本週工具 (single) -->
+<section>
+  <div class="section-header">
+    <span class="section-num">07 / TOOL</span>
+    <h2 class="section-title">本週工具</h2>
+  </div>
+  <div class="tool-card">
+    <span class="tool-badge">馬上可用</span>
+    <div class="tool-name">Luma 活動報名頁</div>
+    <div class="tool-desc">免費的活動頁與報名工具，幾分鐘就能做出一個有日期、地點、名額與報名表的頁面，台灣不少跑團的 Coffee Run 也用它收報名。報名名單可以匯出，方便事後對帳。</div>
+    <div class="tool-how">
+      <span class="tool-how-label">本週怎麼用</span>
+      ① 開一場 20 人的「營養師陪跑＋早午餐」小活動（對應雷達 黃鈺琪 Coffee Run 與熱度 #2），用 Luma 收報名、設名額上限。② 報名表加一題「最想改的一個飲食習慣」，活動後依答案寄八週課程體驗碼。③ 和創作者合辦時，每位創作者給一個專屬報名連結，看誰帶來的人最多、最後誰報了課程。
+    </div>
+    <a class="tool-cta" href="https://lu.ma/" target="_blank">
+      🏃 前往 Luma
+    </a>
+    <div class="tool-link">活動頁文案同樣不寫「跑完瘦」「燃脂」；收集個資前寫清楚用途，參加者入鏡要另外取得同意</div>
+  </div>
+</section>
+<!-- SECTION 08: 資料來源 -->
+<section>
+  <div class="section-header">
+    <span class="section-num">08 / SOURCES</span>
+    <h2 class="section-title">資料來源與延伸閱讀</h2>
+  </div>
+  <div class="citations">
+    <h4>本週引用來源（按出現順序）</h4>
+    <ol>
+      <li>思思醫師專欄 —〈肌肉與瘦瘦針的互補關係〉（2026/3/4）<br><a href="https://drneil.tw/2026/03/04/glp1-muscle-preservation-strategies/" target="_blank">https://drneil.tw/2026/03/04/glp1-muscle-preservation-strategies/</a></li>
+      <li>TVBS 新聞 — 骨科醫師嚴可倫談路跑傷害<br><a href="https://news.tvbs.com.tw/health/2443188" target="_blank">https://news.tvbs.com.tw/health/2443188</a></li>
+      <li>新頭殼 — 光田綜合醫院介紹嚴可倫醫師（2023）<br><a href="https://newtalk.tw/news/view/2023-10-20/893192" target="_blank">https://newtalk.tw/news/view/2023-10-20/893192</a></li>
+      <li>方格子 —《跑步不要聽》節目介紹<br><a href="https://vocus.cc/article/65fae190fd89780001d656ca" target="_blank">https://vocus.cc/article/65fae190fd89780001d656ca</a></li>
+      <li>TVBS 健康 2.0 — 田鴻魁 50 歲開始跑步<br><a href="https://health.tvbs.com.tw/regimen/360598" target="_blank">https://health.tvbs.com.tw/regimen/360598</a></li>
+      <li>天下雜誌 — Coffee Run 發起人黃鈺琪與女性跑者社群<br><a href="https://www.cw.com.tw/article/5137392" target="_blank">https://www.cw.com.tw/article/5137392</a></li>
+      <li>Tatler Asia — 高琹雯專訪<br><a href="https://www.tatlerasia.com/dining/the-industry/interview-liz-kao" target="_blank">https://www.tatlerasia.com/dining/the-industry/interview-liz-kao</a></li>
+      <li>Podwise —《美食關鍵詞》集數列表<br><a href="https://podwise.ai/podcasts/5524" target="_blank">https://podwise.ai/podcasts/5524</a></li>
+      <li>Beauty321 — 7-11 CITY PRIMA × Hello Kitty 集點<br><a href="https://www.beauty321.com/post/73740" target="_blank">https://www.beauty321.com/post/73740</a></li>
+      <li>數位時代 — 皮克敏路跑 2027 報名資訊<br><a href="https://www.bnext.com.tw/article/92886/pikmin-run-festival-taiwan-2027-registration" target="_blank">https://www.bnext.com.tw/article/92886/pikmin-run-festival-taiwan-2027-registration</a></li>
+      <li>TVBS 健康 2.0 — 皮克敏首發路跑登台<br><a href="https://health.tvbs.com.tw/nutrition/367151" target="_blank">https://health.tvbs.com.tw/nutrition/367151</a></li>
+      <li>Beauty321 — UNIQLO × Cecilie Bahnsen 第二彈<br><a href="https://www.beauty321.com/amp/post/73668" target="_blank">https://www.beauty321.com/amp/post/73668</a></li>
+      <li>蕃薯藤旅遊 — 7-ELEVEN × Loveez 心動食光<br><a href="https://travel.yam.com/article/141364" target="_blank">https://travel.yam.com/article/141364</a></li>
+      <li>中時新聞網 — 雙 11 電商戰況（PChome 首小時訂單）<br><a href="https://wantrich.chinatimes.com/news/20261112900191-420101" target="_blank">https://wantrich.chinatimes.com/news/20261112900191-420101</a></li>
+      <li>kikinote — 2026 雙 12 電商活動整理<br><a href="https://kikinote.net/159703" target="_blank">https://kikinote.net/159703</a></li>
+      <li>104 部落格 — 2026 上半年台灣電商流量排名<br><a href="https://blog.104.com.tw/2026-h1-taiwan-ecommerce-traffic-ranking/" target="_blank">https://blog.104.com.tw/2026-h1-taiwan-ecommerce-traffic-ranking/</a></li>
+      <li>數位時代 — 流量通膨與零售競爭分析<br><a href="https://www.bnext.com.tw/article/91940/vbehdg7n-20260821010535-pzre4w3h" target="_blank">https://www.bnext.com.tw/article/91940/vbehdg7n-20260821010535-pzre4w3h</a></li>
+      <li>gori.me — Instagram 限動發布後 15 分鐘可編輯（2026/11/18）<br><a href="https://gori.me/facebook/instagram/172790" target="_blank">https://gori.me/facebook/instagram/172790</a></li>
+      <li>Meta Newsroom — Creator Fast Track（11/13 更新）<br><a href="https://about.fb.com/news/2026/03/creator-fast-track-grow-your-audience-earn-money-on-facebook/" target="_blank">https://about.fb.com/news/2026/03/creator-fast-track-grow-your-audience-earn-money-on-facebook/</a></li>
+      <li>TechCrunch — Meta rolls out a new AI Creator Assistant on Facebook<br><a href="https://techcrunch.com/2026/06/04/meta-rolls-out-a-new-ai-creator-assistant-on-facebook/" target="_blank">https://techcrunch.com/2026/06/04/meta-rolls-out-a-new-ai-creator-assistant-on-facebook/</a></li>
+      <li>SocialBee — Threads news, updates, and features<br><a href="https://socialbee.com/blog/threads-news-updates-features/" target="_blank">https://socialbee.com/blog/threads-news-updates-features/</a></li>
+      <li>TechCrunch — Threads posts can now be shared directly to your Instagram Story<br><a href="https://techcrunch.com/2026/02/20/threads-posts-can-now-be-shared-directly-to-your-instagram-story-without-leaving-the-app" target="_blank">https://techcrunch.com/2026/02/20/threads-posts-can-now-be-shared-directly-to-your-instagram-story-without-leaving-the-app</a></li>
+      <li>Meta Transparency Center — Health and Wellness 廣告政策<br><a href="https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness" target="_blank">https://transparency.meta.com/policies/ad-standards/restricted-goods-services/health-wellness</a></li>
+      <li>食藥署 — 違規食品廣告「活化勝」與代言醫師（2026/10/1）<br><a href="https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&amp;id=t634723" target="_blank">https://www.fda.gov.tw/tc/newsContent.aspx?cid=4&amp;id=t634723</a></li>
+      <li>聯合新聞網 — 賈乃亮雙 11 首日帶貨破 5.7 億元<br><a href="https://udn.com/news/story/7333/9833167" target="_blank">https://udn.com/news/story/7333/9833167</a></li>
+      <li>鈦媒體 — 賈乃亮雙 11 直播分析（退貨率說法出處）<br><a href="https://www.tmtpost.com/8180937.html" target="_blank">https://www.tmtpost.com/8180937.html</a></li>
+      <li>工商時報 — 好食課《2026 國人保健食品消費大調查》<br><a href="https://www.ctee.com.tw/news/20261008701141-431205" target="_blank">https://www.ctee.com.tw/news/20261008701141-431205</a></li>
+      <li>Luma — 活動報名頁工具<br><a href="https://lu.ma/" target="_blank">https://lu.ma/</a></li>
+    </ol>
+    <div class="citations-note">
+      本週報由 Cofit 網紅中心團隊彙整公開資料，僅供內部參考。引用來源若有內容爭議或最新更新，請以原始連結為準。私人數據（如具體網紅實際業配成效、Cofit 內部轉換率）未納入本報告。<strong>未查證項目：</strong>雷達 5 位的粉絲數全部待查證，嚴可倫醫師、黃鈺琪的帳號網址未確認；《跑步不要聽》「運動類排行第一」的排行日期、集數為介紹文與書籍說法；Coffee Run「14 場、一場約 40 人」為天下報導當時數字、報導日期未見；《美食關鍵詞》最新集數為第三方平台資料；PChome「首小時近 7 倍」為業者自稱、比較基準為上月同時段；「網購業者家數增幅約為銷售額 4.5 倍」為未來流通研究所分析經媒體整理，原始報告未直接查閱；電商流量年增率為 104 部落格整理之第三方流量數據；賈乃亮 5.7 億為業界戰報、退貨率 3% 僅一篇評論引述；皮克敏路跑未公布報名人數；IG 限動編輯功能台灣上線時間未公布；Creator Fast Track 更新是否適用台灣未確認；17 項功能性成分登錄制為好食課整理，正式公告未見。聯名區的「推薦提案」為策略發想，品牌皆未接洽。法規說明為公開資訊整理，非法律意見。
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="tagline">Change behavior, live better.</div>
+  COFIT · KOL Center · Weekly Pulse · Issue #015 · 2026
+</footer>
+
+</div>
+</body>
+
+</html>
